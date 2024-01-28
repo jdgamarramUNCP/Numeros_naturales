@@ -1,12 +1,15 @@
 class Numeros_naturales:
     def __init__(self, numero):
-        self.numero = numero
+        self._numero = numero
 
-    def get_numero(self):
-        return self.numero
+    @property #getter
+    def numero(self):
+        return self._numero
 
-    def set_numero(self, numero):
-        self.numero = numero
+    @numero.setter #setter
+    def numero(self, value):
+        self._numero=value
+
     def leer_numero(self):
         while True:
             try:
@@ -14,15 +17,15 @@ class Numeros_naturales:
                 if nuevo_numero < 0:
                     print("Por favor, ingrese un número natural válido.")
                 else:
-                    self.numero = nuevo_numero
+                    self._numero = nuevo_numero
                     break
             except ValueError:
                 print("Por favor, ingrese un número válido.")
 
     def calcular_divisores(self):
         divisores = []
-        for i in range(1, self.numero + 1):
-            if self.numero % i == 0:
+        for i in range(1, self._numero + 1):
+            if self._numero % i == 0:
                 divisores.append(i)
         return divisores
 
