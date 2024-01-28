@@ -2,13 +2,16 @@ class Numeros_naturales:
     def __init__(self, numero):
         self._numero = numero
 
-    @property #getter
+    @property
     def numero(self):
         return self._numero
 
-    @numero.setter #setter
-    def numero(self, value):
-        self._numero=value
+    @numero.setter
+    def numero(self, valor):
+        if isinstance(valor, int) and valor >= 0:
+            self._numero = valor-3
+        else:
+            raise ValueError("El número debe ser un entero no negativo.")
 
     def leer_numero(self):
         while True:
@@ -28,6 +31,7 @@ class Numeros_naturales:
             if self._numero % i == 0:
                 divisores.append(i)
         return divisores
+
 
 if __name__ == '__main__':
     num = Numeros_naturales(12)
