@@ -7,6 +7,17 @@ class Numeros_naturales:
 
     def set_numero(self, numero):
         self.numero = numero
+    def leer_numero(self):
+        while True:
+            try:
+                nuevo_numero = int(input("Ingrese un número natural: "))
+                if nuevo_numero < 0:
+                    print("Por favor, ingrese un número natural válido.")
+                else:
+                    self.numero = nuevo_numero
+                    break
+            except ValueError:
+                print("Por favor, ingrese un número válido.")
 
     def calcular_divisores(self):
         divisores = []
